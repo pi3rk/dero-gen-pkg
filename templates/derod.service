@@ -1,0 +1,17 @@
+[Unit]
+Description=Dero daemon
+After=syslog.target
+After=network.target
+StartLimitInterval=60
+StartLimitBurst=5
+
+[Service]
+Type=forking
+EnvironmentFile=%CONF_DIR%/dero.conf
+WorkingDirectory=%WORKING_DIR%
+ExecStart=/usr/bin/tmux -S /run/derod.socket new -s derod -d %BIN_DIR%/derod --rpc-bind=${RPC_ADDR}:${RPC_PORT} --data-dir=%DATA_DIR%/derod --node-tag=${NAME}
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multiplexer.target
