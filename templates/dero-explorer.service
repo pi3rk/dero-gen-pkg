@@ -1,0 +1,17 @@
+[Unit]
+Description=Dero explorer
+After=derod.service
+Requires=derod.service
+StartLimitInterval=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+EnvironmentFile=%CONF_DIR%/dero.conf
+WorkingDirectory=%WORKING_DIR%
+ExecStart=%BIN_DIR%/dero-explorer --rpc-server-address=${RPC_ADDR}:${RPC_PORT} --http-address=${HTTP_ADDR}:${HTTP_PORT}
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multiplexer.target

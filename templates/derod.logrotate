@@ -1,0 +1,10 @@
+%LOG_DIR%/dero*.log {
+  compress
+  daily
+  delaycompress
+  rotate 31
+  sharedscripts
+  postrotate
+    systemctl restart derod
+  endscript
+}

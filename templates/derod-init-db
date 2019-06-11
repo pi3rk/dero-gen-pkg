@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DB_DIR="%DATA_DIR%/derod"
+DERO_DB="http://seeds.dero.io/blockchain/derod_database.db"
+
+printf "Actual dero database will be deleted, Continue ? Y/n "
+read -r choice
+
+case "$choice" in
+  y|Y|yes|Yes )
+    printf "=== Ensure derod is Stopped\n"	  
+    systemctl stop derod
+    rm -f "${DB_DIR}/mainnet/derod_database.db"
+    mkdir -p "${DB_DIR}/mainnet/"
+    printf "=== Download dero database\n"	  
+    wget -q --show-progress "${DERO_DB}" -O "${DB_DIR}/mainnet/derod_database.db"
+    ;;
+  n|N|no|No )
+    exit
+    ;;
+esac

@@ -1,0 +1,5 @@
+#!/bin/bash
+source %CONF_DIR%/dero.conf
+
+printf '{"myDaemon":"http://'"${RPC_ADDR}"':'"${RPC_PORT}"'","myName":"'"${NAME}"'","myDescription":"'"${DESCR}"'"}' > %WORKING_DIR%/config.json
+
