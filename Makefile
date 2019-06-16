@@ -13,7 +13,7 @@ TARBALL=$(TARDIR).tar.gz
 
 # mainet
 VERSION=2.1.6
-ITERATION=2
+ITERATION=3
 DOWNLOAD=http://seeds.dero.io/atlantis/$(TARBALL)
 STATS_DL=https://github.com/deroproject/dero-network-stats/blob/master/build/stats-client-linux?raw=true
 
@@ -60,7 +60,8 @@ define gen_derod_src
 			$(TMPL_DIR)/derod.logrotate >  $(BUILD_DIR)$(LOGROTATE_DIR)/derod
 	cp $(TMPL_DIR)/derod-cli $(BUILD_DIR)$(BIN_DIR)/derod-cli
 	chmod +x $(BUILD_DIR)$(BIN_DIR)/derod-cli
-	cp $(TMPL_DIR)/derod-init-db $(BUILD_DIR)$(BIN_DIR)/derod-init-db
+	sed	-e 's?%DATA_DIR%?$(DATA_DIR)?g' \
+			$(TMPL_DIR)/derod-init-db > $(BUILD_DIR)$(BIN_DIR)/derod-init-db
 	chmod +x $(BUILD_DIR)$(BIN_DIR)/derod-init-db
 endef
 
