@@ -32,7 +32,7 @@ db take place in `/var/lib/derod/mainnet`
 download dero database :
 
 ```
-dero-init-db
+derod-init-db
 ```
 
 Change your dero node name and description in file `/etc/dero.conf`
@@ -60,6 +60,9 @@ check your node state there : https://stats.atlantis.dero.live/
 
 # Compatibility
 
-| OS           | Status |
-|--------------|--------|
-| Ubuntu 18.04 | OK     |
+| OS           | Status      |
+|--------------|-------------|
+| Ubuntu 18.04 | OK          |
+| Ubuntu 16.04 | OK          |
+| Ubuntu 14.04 | Not working |
+| Debian 9     | OK          |
