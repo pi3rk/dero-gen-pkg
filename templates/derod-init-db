@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DB_DIR="%DATA_DIR%/derod"
-DERO_DB="http://seeds.dero.io/blockchain/derod_database.db"
+DERO_DB="http://eu01.dero.network/derod_database.db"
 
 printf "Actual dero database will be deleted, Continue ? Y/n "
 read -r choice

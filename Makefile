@@ -13,7 +13,7 @@ TARBALL=$(TARDIR).tar.gz
 
 # mainet
 VERSION=2.1.6
-ITERATION=1
+ITERATION=2
 DOWNLOAD=http://seeds.dero.io/atlantis/$(TARBALL)
 STATS_DL=https://github.com/deroproject/dero-network-stats/blob/master/build/stats-client-linux?raw=true
 
