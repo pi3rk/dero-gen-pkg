@@ -10,7 +10,7 @@ Type=forking
 EnvironmentFile=%CONF_DIR%/dero.conf
 WorkingDirectory=%WORKING_DIR%
 ExecStart=/usr/bin/tmux -S /run/derod.socket new -s derod -d %BIN_DIR%/derod --rpc-bind=${RPC_ADDR}:${RPC_PORT} --data-dir=%DATA_DIR%/derod --node-tag=${NAME}
-Restart=on-failure
+Restart=always
 RestartSec=10
 
 [Install]
